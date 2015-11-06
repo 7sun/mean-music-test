@@ -6,7 +6,7 @@
       .service('soundService', soundService);
 
   function soundService($http, $q) {
-    var apiKeyParam = '?client_id=bda4ada8694db06efcac9cf97b872b3e';
+    var apiKeyParam = 'bda4ada8694db06efcac9cf97b872b3e';
 
     this.getSounds = getSounds;
     this.searchArtists = searchArtists;
@@ -28,12 +28,12 @@
         artist = 'flume';
       }
       var deferred = $q.defer();
-      $http.get('http://api.soundcloud.com/users/' + artist + '/tracks.json' + apiKeyParam)
+      $http.get('http://api.soundcloud.com/users/' + artist + '/tracks.json?client_id=' + apiKeyParam)
         .success(function(data){
           deferred.resolve(data);
         })
         .error(function(errors){
-          console.log("getSounds errors: ", errors);
+          console.log("sound errors: ", errors);
         })
       return deferred.promise;
     }

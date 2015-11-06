@@ -15,13 +15,12 @@
     vm.currentTrack;
     vm.getSounds = getSounds;
     vm.searchArtists = searchArtists;
-    vm.submitArtist = submitArtist;
     vm.loadTrack = loadTrack;
 
     getSounds();
 
-    function searchArtists(artist){
-      soundService.searchArtists(artist)
+    function searchArtists(){
+      soundService.searchArtists(vm.artist)
       .then(function(data){
         vm.artists = data;
       })
@@ -34,12 +33,8 @@
       })
     }
 
-    function submitArtist(){
-      searchArtists(vm.artist);
-    }
-
     function loadTrack(sound){
-      sound.streamable ? vm.currentTrack = sound.stream_url + apiKeyParam: alert("This song is not available for streaming");
+      sound.streamable ? vm.currentTrack = sound.stream_url + apiKeyParam : alert("This song is not available for streaming");
     }
   }
 })();

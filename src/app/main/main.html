@@ -6,19 +6,19 @@
   </header>
 
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <span class="mdl-layout-title">Mean Music</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Latest Songs</a>
+      <a class="mdl-navigation__link" href="">Favorites</a>
+      <a class="mdl-navigation__link" href="">Friends</a>
+      <a class="mdl-navigation__link" href="">Contact</a>
     </nav>
   </div>
 
   <main class="mdl-layout__content">
     <div class="page-content">
     <audio controls autoplay ng-src="{{main.currentTrack | trusted}}"></audio>
-    <form ng-submit="main.submitArtist()">
+    <form ng-submit="main.searchArtists()">
       <input type="text" placeholder="Enter an Artist" ng-model="main.artist">
       <input type="submit" id="submit" value="Submit"/>
     </form>
@@ -27,7 +27,7 @@
     </ul>
       <div ng-repeat="sound in main.sounds">
         <h5 ng-click="main.loadTrack(sound)">{{sound.title}}</h5>
-        <p>{{sound.user.username}}</p>
+        <p>{{sound.username}}</p>
       </div>
     </div>
   </main>
