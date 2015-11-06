@@ -10,14 +10,14 @@
     var vm = this;
     var apiKeyParam = '?client_id=bda4ada8694db06efcac9cf97b872b3e';
 
-    vm.sounds = [];
+    vm.tracks = [];
     vm.artist;
     vm.currentTrack;
-    vm.getSounds = getSounds;
+    vm.getTracks = getTracks;
     vm.searchArtists = searchArtists;
     vm.loadTrack = loadTrack;
 
-    getSounds();
+    getTracks();
 
     function searchArtists(){
       soundService.searchArtists(vm.artist)
@@ -26,15 +26,15 @@
       })
     }
 
-    function getSounds(artist) {
-      soundService.getSounds(artist)
+    function getTracks(artist) {
+      soundService.getTracks(artist)
       .then(function(data){
-        vm.sounds = data;
+        vm.tracks = data;
       })
     }
 
-    function loadTrack(sound){
-      sound.streamable ? vm.currentTrack = sound.stream_url + apiKeyParam : alert("This song is not available for streaming");
+    function loadTrack(track){
+      track.streamable ? vm.currentTrack = track.stream_url + apiKeyParam : alert("This song is not available for streaming");
     }
   }
 })();

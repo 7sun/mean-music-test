@@ -8,7 +8,7 @@
   function soundService($http, $q) {
     var apiKeyParam = 'bda4ada8694db06efcac9cf97b872b3e';
 
-    this.getSounds = getSounds;
+    this.getTracks = getTracks;
     this.searchArtists = searchArtists;
 
     function searchArtists(artist){
@@ -23,7 +23,7 @@
       return deferred.promise
     }
 
-    function getSounds(artist) {
+    function getTracks(artist) {
       if (!artist){
         artist = 'flume';
       }
@@ -33,7 +33,7 @@
           deferred.resolve(data);
         })
         .error(function(errors){
-          console.log("sound errors: ", errors);
+          console.log("track errors: ", errors);
         })
       return deferred.promise;
     }

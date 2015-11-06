@@ -23,11 +23,11 @@
       <input type="submit" id="submit" value="Submit"/>
     </form>
     <ul ng-repeat="artist in main.artists">
-      <li ng-click="main.getSounds(artist.permalink)">{{artist.username}}</li>
+      <li ng-click="main.getTracks(artist.permalink)">{{artist.username}}</li>
     </ul>
-      <div ng-repeat="sound in main.sounds">
-        <h5 ng-click="main.loadTrack(sound)">{{sound.title}}</h5>
-        <p>{{sound.username}}</p>
+      <div ng-repeat="track in main.tracks">
+        <h5 ng-click="main.loadTrack(track)">{{track.title}}</h5>
+        <p>{{track.username}}</p>
       </div>
     </div>
   </main>
