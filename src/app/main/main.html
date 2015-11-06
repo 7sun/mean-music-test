@@ -19,7 +19,7 @@
     <div class="page-content">
     <audio controls autoplay ng-src="{{main.currentTrack | trusted}}"></audio>
     <form ng-submit="main.submitArtist()">
-      <input type="text" placeholder="Enter an Artist" ng-model="main.artist" class="md-button">
+      <input type="text" placeholder="Enter an Artist" ng-model="main.artist">
       <input type="submit" id="submit" value="Submit"/>
     </form>
     <ul ng-repeat="artist in main.artists">

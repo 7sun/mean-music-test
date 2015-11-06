@@ -28,10 +28,8 @@
     }
 
     function getSounds(artist) {
-      console.log("artist: ", artist);
       soundService.getSounds(artist)
       .then(function(data){
-        console.log("getsounds data: ", data);
         vm.sounds = data;
       })
     }
